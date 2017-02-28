@@ -26,6 +26,16 @@ Install Python requirements:
     # sudo pip install -r requirements.txt
 ```
 
+Update the PSQL connection parameters in `jumpbox/database.py`
+```bash
+	# vi /opt/jumpbox/jumpbox/database.py
+```
+```python
+	# These are located on lines 29 and 30
+	db_username = 'username' # This is the username of your PSQL database
+	db_host = '127.0.0.1' # This is the IP address where your PSQL database lives
+```
+
 Create Jumpbox User:
 ```bash
     # useradd -m -s /opt/jumpbox/jumpbox.py jumpbox

@@ -27,7 +27,7 @@ class DBHandler(object):
     
         # Modify the following vars to be the connection parameters for your database
         db_username = 'username'
-        db_host = '127.0.0.11'
+        db_host = '127.0.0.1'
 
     # This function returns data from a query for all devices
     def all_devices_query(self):

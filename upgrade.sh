@@ -13,9 +13,9 @@ fi
 
 # Pull Jumpbox updates
 COMMAND="${PREFIX}git checkout master"
-echo "Checkout master Git repo..."
+echo "Checkout master Git repo ($COMMAND)..."
 COMMAND="${PREFIX}git pull origin master"
-echo "Pull updated Jumpbox files..."
+echo "Pull updated Jumpbox files ($COMMAND)..."
 
 # Install new Python packages
 COMMAND="${PREFIX}pip install -r requirements.txt --upgrade"

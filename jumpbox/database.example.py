@@ -62,7 +62,7 @@ class DBHandler(object):
     # This function makes the connection to the database
     def dbconnect(self, query):
         try:
-            conn = psycopg2.connect("user = 'netbox' host = '10.7.65.33'")
+            conn = psycopg2.connect("user = 'username' host = '127.0.0.1'")
             cur = conn.cursor()
             cur.execute(query)
             rows = cur.fetchall()

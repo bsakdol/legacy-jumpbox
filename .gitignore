@@ -90,3 +90,6 @@ ENV/
 
 # Windows
 *.ini
+
+# Project specific files
+database.py

@@ -65,7 +65,7 @@ class JumpboxUI(object):
                 curses.reset_prog_mode()
                 curses.curs_set(1)
                 curses.curs_set(0)
-            
+
             elif menu['options'][selected]['type'] == "prompt":
                 curses.def_prog_mode()
                 os.system('reset')

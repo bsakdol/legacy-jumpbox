@@ -22,7 +22,6 @@ import sys
 
 class DBHandler(object):
 
-
     # This function returns data from a query for all devices
     def all_devices_query(self):
         query_all_devices = '\

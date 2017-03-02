@@ -28,12 +28,12 @@ Install Python requirements:
 
 Update the PSQL connection parameters in `jumpbox/database.py`
 ```bash
-	# vi /opt/jumpbox/jumpbox/database.py
+	# cp /opt/jumpbox/jumpbox/database.example.py /opt/jumpbox/jumpbox/database.py
 ```
+Change `username` and `127.0.0.1` to be the username and IP address of your PSQL host
 ```python
-	# These are located on lines 29 and 30
-	db_username = 'username' # This is the username of your PSQL database
-	db_host = '127.0.0.1' # This is the IP address where your PSQL database lives
+	# Line 65
+	conn = psycopg2.connect("user = 'username' host = '127.0.0.1'")
 ```
 
 Create Jumpbox User:

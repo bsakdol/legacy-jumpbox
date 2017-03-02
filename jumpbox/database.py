@@ -22,12 +22,6 @@ import sys
 
 class DBHandler(object):
 
-    
-    def __init__(self):
-    
-        # Modify the following vars to be the connection parameters for your database
-        db_username = 'username'
-        db_host = '127.0.0.1'
 
     # This function returns data from a query for all devices
     def all_devices_query(self):
@@ -69,7 +63,7 @@ class DBHandler(object):
     # This function makes the connection to the database
     def dbconnect(self, query):
         try:
-            conn = psycopg2.connect("user = " + db_username + " host = " + db_host + "'")
+            conn = psycopg2.connect("user = 'netbox' host = '10.7.65.33'")
             cur = conn.cursor()
             cur.execute(query)
             rows = cur.fetchall()

@@ -17,6 +17,7 @@
 """This module handles the Jumpbox UI"""
 
 import curses
+import curses.panel
 import os
 
 from menu import Menu
@@ -60,6 +61,18 @@ class JumpboxUI(object):
                 username = raw_input('Username: ')
                 os.system('ssh ' + username + '@' + menu['options'][selected][
                     'ip_addr'])
+                self.stdscr.clear()
+                curses.reset_prog_mode()
+                curses.curs_set(1)
+                curses.curs_set(0)
+            
+            elif menu['options'][selected]['type'] == "prompt":
+                curses.def_prog_mode()
+                os.system('reset')
+                ip_address = raw_input('IP / Hostname: ')
+                os.system('clear')
+                username = raw_input('Username: ')
+                os.system('ssh ' + username + '@' + ip_address)
                 self.stdscr.clear()
                 curses.reset_prog_mode()
                 curses.curs_set(1)

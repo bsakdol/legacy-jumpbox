@@ -52,5 +52,9 @@ class Menu(object):
                     'type': MENU,
                     'options': menu_all_sites
                 },
+                {
+                    'title': "Quick Connect",
+                    'type': PROMPT
+                },
             ]
         }

@@ -135,6 +135,7 @@ class JumpboxUI(object):
                 self.stdscr.border('|', '|', '-', '-', '+', '+', '+', '+')
                 self.stdscr.addstr(1, 2, 'NetOps Jumpbox', curses.A_UNDERLINE)
                 self.stdscr.addstr(2, 3, menu['title'], curses.A_BOLD)
+                self.stdscr.addstr(4, 3, menu['subtitle'], curses.A_NORMAL)
                 self.stdscr.addstr(termy - 2, termx - 9, 'v' + __version__,
                                    curses.A_BOLD)
                 self.stdscr.refresh()

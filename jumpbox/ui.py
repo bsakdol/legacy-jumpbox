@@ -118,10 +118,10 @@ class JumpboxUI(object):
                         pad.addstr(index, 0, '%d - %s' % (
                             index + 1, menu['options'][index]['title'] + ': ' +
                             menu['options'][index]['ip_addr']), textstyle)
-                    else:    
+                    else:
                         pad.addstr(index, 0, '%d - %s' % (
                             index + 1, menu['options'][index]['title']),
-                            textstyle)
+                                   textstyle)
 
                 textstyle = self.normal
                 if pos == optioncount:

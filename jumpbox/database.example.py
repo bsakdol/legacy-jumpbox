@@ -67,7 +67,7 @@ class DBHandler(object):
 
             return rows
 
-        except psycopg2.DatabaseError, err:
+        except psycopg2.DatabaseError as err:
             print 'Error %s' % err
             sys.exit(1)
 

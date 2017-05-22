@@ -38,7 +38,7 @@ Change `username` and `127.0.0.1` to be the username and IP address of your PSQL
 
 Create Jumpbox User:
 ```bash
-    # useradd -m -s /opt/jumpbox/jumpbox.py jumpbox
+    # useradd -m -s /opt/jumpbox/jumpbox/main.py jumpbox
     # passwd jumpbox
 ```
 

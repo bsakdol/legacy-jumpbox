@@ -50,7 +50,8 @@ class DBHandler(object):
             SELECT dcim_device.name AS "Device Name", \
                    ipam_ipaddress.address AS "IP Address" \
             FROM dcim_device \
-                 JOIN ipam_ipaddress ON dcim_device.primary_ip4_id = ipam_ipaddress.id \
+                 JOIN ipam_ipaddress ON dcim_device.primary_ip4_id = \
+                                        ipam_ipaddress.id \
             WHERE dcim_device.site_id = ' + str(site_id) + '\
             ORDER BY dcim_device.name ASC;'
 

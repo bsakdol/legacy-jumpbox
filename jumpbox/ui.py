@@ -59,8 +59,8 @@ class JumpboxUI(object):
                 curses.def_prog_mode()
                 os.system('reset')
                 username = raw_input('Username: ')
-                os.system('ssh ' + username + '@' + menu['options'][selected][
-                    'ip_addr'])
+                os.system('ssh ' + username + '@' +
+                          menu['options'][selected]['ip_addr'])
                 self.stdscr.clear()
                 curses.reset_prog_mode()
                 curses.curs_set(1)
@@ -115,19 +115,21 @@ class JumpboxUI(object):
                     if pos == index:
                         textstyle = self.highlight
                     if 'ip_addr' in menu['options'][index]:
-                        pad.addstr(index, 0, '%d - %s' % (
-                            index + 1, menu['options'][index]['title'] + ': ' +
-                            menu['options'][index]['ip_addr']), textstyle)
+                        pad.addstr(
+                            index, 0, '%d - %s' %
+                            (index + 1, menu['options'][index]['title'] + ': ' +
+                             menu['options'][index]['ip_addr']), textstyle)
                     else:
-                        pad.addstr(index, 0, '%d - %s' % (
-                            index + 1, menu['options'][index]['title']),
-                            textstyle)
+                        pad.addstr(index, 0, '%d - %s' %
+                                   (index + 1,
+                                    menu['options'][index]['title']),
+                                   textstyle)
 
                 textstyle = self.normal
                 if pos == optioncount:
                     textstyle = self.highlight
-                pad.addstr(optioncount, 0, '%d - %s' %
-                           (optioncount + 1, lastoption), textstyle)
+                pad.addstr(optioncount, 0, '%d - %s' % (optioncount + 1,
+                                                        lastoption), textstyle)
 
                 pad.refresh(scroller, 0, top, left, termy - 3, width)
 

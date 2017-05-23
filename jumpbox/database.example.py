@@ -50,10 +50,9 @@ class DBHandler(object):
             SELECT dcim_device.name AS "Device Name", \
                    ipam_ipaddress.address AS "IP Address" \
             FROM dcim_device \
-                 JOIN ipam_ipaddress ON dcim_device.primary_ip4_id = ipam_ipaddress.id \
-                 JOIN dcim_rack ON dcim_rack.id = dcim_device.rack_id \
-                 JOIN dcim_site ON dcim_rack.site_id = dcim_site.id \
-                                   AND dcim_site.id =' + str(site_id) + '\
+                 JOIN ipam_ipaddress ON dcim_device.primary_ip4_id = \
+                                        ipam_ipaddress.id \
+            WHERE dcim_device.site_id = ' + str(site_id) + '\
             ORDER BY dcim_device.name ASC;'
 
         rows = self.dbconnect(query_one_site)
@@ -69,7 +68,7 @@ class DBHandler(object):
 
             return rows
 
-        except psycopg2.DatabaseError, err:
+        except psycopg2.DatabaseError as err:
             print 'Error %s' % err
             sys.exit(1)
 

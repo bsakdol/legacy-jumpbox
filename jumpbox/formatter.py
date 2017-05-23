@@ -23,7 +23,8 @@ from database import DBHandler
 
 class FormatMenu(object):
 
-    # This function formats the data from device specific queries to menu syntax
+    # This function formats the data from device specific queries to menu
+    # syntax
     def format_devices(self, query_data):
 
         # Remove any CIDR notation

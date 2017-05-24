@@ -16,8 +16,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """This module handles database connectivity"""
 
-import psycopg2
 import sys
+
+from configuration import DBConnect
 
 
 class DBHandler(object):
@@ -31,7 +32,7 @@ class DBHandler(object):
             WHERE dcim_device.primary_ip4_id = ipam_ipaddress.id \
             ORDER BY dcim_device.name ASC;'
 
-        rows = self.dbconnect(query_all_devices)
+        rows = DBConnect().fetcher(query_all_devices)
         return rows
 
     # This function returns data from a query for all sites
@@ -41,7 +42,7 @@ class DBHandler(object):
             FROM dcim_site \
             ORDER BY dcim_site.facility ASC;'
 
-        rows = self.dbconnect(query_all_sites)
+        rows = DBConnect().fetcher(query_all_sites)
         return rows
 
     # This function returns data from a query for devices from a single site
@@ -55,23 +56,5 @@ class DBHandler(object):
             WHERE dcim_device.site_id = ' + str(site_id) + '\
             ORDER BY dcim_device.name ASC;'
 
-        rows = self.dbconnect(query_one_site)
+        rows = DBConnect().fetcher(query_one_site)
         return rows
-
-    # This function makes the connection to the database
-    def dbconnect(self, query):
-        try:
-            conn = psycopg2.connect("user = 'username' host = '127.0.0.1'")
-            cur = conn.cursor()
-            cur.execute(query)
-            rows = cur.fetchall()
-
-            return rows
-
-        except psycopg2.DatabaseError as err:
-            print 'Error %s' % err
-            sys.exit(1)
-
-        finally:
-            if conn:
-                conn.close()

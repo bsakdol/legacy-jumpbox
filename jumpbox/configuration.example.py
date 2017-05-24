@@ -14,5 +14,27 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+"""This module handles database connectivity"""
 
-__version__ = '1.3.1'
+import psycopg2
+
+
+class DBConnect(object):
+
+    # This function makes the connection to the database
+    def fetcher(self, query):
+        try:
+            conn = psycopg2.connect("user = 'username' host = '127.0.0.1'")
+            cur = conn.cursor()
+            cur.execute(query)
+            rows = cur.fetchall()
+
+            return rows
+
+        except psycopg2.DatabaseError as err:
+            print 'Error %s' % err
+            sys.exit(1)
+
+        finally:
+            if conn:
+                conn.close()

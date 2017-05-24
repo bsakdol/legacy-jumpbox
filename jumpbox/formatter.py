@@ -18,7 +18,7 @@
 
 import re
 
-from database import DBHandler
+from dbquery import DBHandler
 
 
 class FormatMenu(object):

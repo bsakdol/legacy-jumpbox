@@ -18,6 +18,7 @@
 
 import psycopg2
 
+
 class DBConnect(object):
 
     # This function makes the connection to the database

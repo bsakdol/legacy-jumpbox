@@ -58,3 +58,4 @@ class DBHandler(object):
 
         rows = self.DBConnect.fetcher(query_one_site)
         return rows
+        

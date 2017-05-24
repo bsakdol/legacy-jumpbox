@@ -32,7 +32,7 @@ class DBHandler(object):
             WHERE dcim_device.primary_ip4_id = ipam_ipaddress.id \
             ORDER BY dcim_device.name ASC;'
 
-        rows = self.DBConnect().fetcher(query_all_devices)
+        rows = DBConnect().fetcher(query_all_devices)
         return rows
 
     # This function returns data from a query for all sites
@@ -42,7 +42,7 @@ class DBHandler(object):
             FROM dcim_site \
             ORDER BY dcim_site.facility ASC;'
 
-        rows = self.DBConnect().fetcher(query_all_sites)
+        rows = DBConnect().fetcher(query_all_sites)
         return rows
 
     # This function returns data from a query for devices from a single site
@@ -56,5 +56,5 @@ class DBHandler(object):
             WHERE dcim_device.site_id = ' + str(site_id) + '\
             ORDER BY dcim_device.name ASC;'
 
-        rows = self.DBConnect().fetcher(query_one_site)
+        rows = DBConnect().fetcher(query_one_site)
         return rows

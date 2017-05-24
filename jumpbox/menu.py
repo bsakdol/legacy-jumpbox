@@ -16,7 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """This module handles the menu system"""
 
-from database import DBHandler
+from dbquery import DBHandler
 from formatter import FormatMenu
 
 
